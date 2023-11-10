@@ -1,3 +1,4 @@
+const {nextui} = require("@nextui-org/react");
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -8,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        Inter:["var(--font-inter)"],
+        Monserrat: ["var(--font-montserrat)"],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -15,6 +20,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 }
 export default config
