@@ -2,74 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
 body {
-  background: #030015!important;
-  font-size: 16px;
-  font-weight: 400;
-  max-width: 100vw;
-  min-height: 100vh; 
-  overflow-x: clip;
+  background-color: #181818;
+  font-size: 17px;
   color: #fff;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-  scroll-behavior: smooth;
+
+  height: 100vh;
 }
 
-* {
-  scroll-behavior: smooth;
+input,
+textarea,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
-.banner {
-  min-height: 100vh;
-  background-image: url("https://pixner.net/aikeu/assets/images/banner/banner-one-bg.png");
-  background-position: center center;
-  background-size: cover;
-  overflow: hidden;
-  z-index: 1;
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  font-size: 1.5rem;
+  cursor: pointer;
 }
-@media screen and (max-width: 760px) {
-     .banner{
-      min-height: unset!important;
-     }
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
 }
-.banner::before {
-  position: absolute;
-  top: 0px;
-  left: -150px;
-  content: "";
-  width: 500px;
-  height: 500px;
-  min-height: 300px;
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #27ae60;
+  border-bottom-color: transparent;
   border-radius: 50%;
-  background: rgba(75, 255, 223, 0.24);
-  filter: blur(227px);
-  /* z-index: -1; */
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
-.banner::after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: -100px;
-  content: "";
-  width: 430px;
-  height: 430px;
-  min-height: 300px;
-  border-radius: 50%;
-  background: rgba(75, 169, 255, 0.44);
-  filter: blur(272px);
-  /* z-index: -1; */
-}
-.shop-banner {
-  background-image: url("https://pixner.net/aikeu/assets/images/banner/cmn-bg.png");
-  background-position: center center;
-  background-size: cover;
-  overflow: hidden;
-  z-index: 1;
-  height: 50vh;
-}
-.before\:transition-background::before {
-  background-color: transparent !important;
-}
-.sellers-banner {
-  background: linear-gradient(132deg, #5fec46 0%, #46e695 100%);
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
