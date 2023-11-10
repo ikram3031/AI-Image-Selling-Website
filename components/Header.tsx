@@ -12,6 +12,14 @@ type Props = {
 
 const Header = ({activeItem}: Props) => {
     const [active, setActive] = useState(false)
+    const [open, setOpen] = useState(false)
+    
+    const handleClose = (e: React.MouseEvent) => {
+        const target = e.target as HTMLElement;
+        if (target.id === "screen") {
+          setOpen(!open);
+        }
+    };
     
     if (typeof window !== "undefined") {
         window.addEventListener("scroll", () => {
@@ -43,6 +51,7 @@ const Header = ({activeItem}: Props) => {
                     <Navigation activeItem={activeItem} />
                 </div>
                 
+                {/* sEARCH & PROFILE */}
                 <div className="flex items-center ml-10">
                     <AiOutlineSearch className="text-[25px] mr-5 cursor-pointer" />
                     {/* {user ? (
@@ -59,7 +68,15 @@ const Header = ({activeItem}: Props) => {
                         <CgProfile className="text-[25px] cursor-pointer" />
                         </Link>
                     )} */}
+                    <Link href="/sign-in">
+                        <CgProfile className="text-[25px] cursor-pointer" />
+                    </Link>
                 </div>
+                
+                {/* todo */}
+                
+                {/* for mobile screen */}
+                {/* copy after adding authentication */}
                 
             </div>
 
