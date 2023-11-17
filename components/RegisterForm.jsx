@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-/* import { useState } from "react";
-import { useRouter } from "next/navigation"; */
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
-/*   const [name, setName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -58,7 +58,7 @@ export default function RegisterForm() {
     } catch (error) {
       console.log("Error during registration: ", error);
     }
-  }; */
+  };
 
   return (
     <div className="grid place-items-center h-screen">
@@ -66,20 +66,20 @@ export default function RegisterForm() {
         <h1 className="text-xl font-bold my-4">Register</h1>
 
         <form 
-        // onSubmit={handleSubmit} 
+        onSubmit={handleSubmit} 
         className="flex flex-col gap-3">
           <input
-            // onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             type="text"
             placeholder="Full Name"
           />
           <input
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             type="text"
             placeholder="Email"
           />
           <input
-            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
           />
@@ -87,11 +87,11 @@ export default function RegisterForm() {
             Register
           </button>
 
-          {/* {error && (
+          {error && (
             <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
               {error}
             </div>
-          )} */}
+          )}
 
           <Link className="text-sm mt-3 text-right" href={"/"}>
             Already have an account? <span className="underline">Login</span>
